@@ -11,8 +11,8 @@
             color: green;
         }
        
-        a:link[href*="https://www.link-group"],   /*a:pseudo-class[href="https://www.link-group.eu/"]  I ovo je moglo biti resenje ali u slicaju dalje promene linka selektor vise ne bi vazio.*/
-        a:visited[href*="https://www.link-group"]
+        a:link[href^="https://www.link-group"],   /*a:pseudo-class[href="https://www.link-group.eu/"]  I ovo je moglo biti resenje ali u slicaju dalje promene linka selektor vise ne bi vazio.*/
+        a:visited[href^="https://www.link-group"]
         {
             color: red;
         }
