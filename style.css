@@ -1,0 +1,96 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#outer{
+    width: 300px;
+    height: 300px;
+    border-radius: 100%;
+    background-image: linear-gradient(#fb5dad 15%, #55fb9f, #55fb9f, #b97aff 85%);
+    position: relative;
+    animation-name: roto-animation;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 2;
+}
+#outer::before{
+    content: "";
+    width: 300px;
+    height: 300px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-image: linear-gradient(#fb5dad 5%, #55fb9f, #55fb9f, #b97aff 95%);
+    border-radius: 100%;
+    transform: scale(1);
+    z-index: 1;
+    filter: blur(40px);
+}
+#inner{
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    border-radius: 100%;
+    background-color: #000;
+    z-index: 3;
+}
+#outer::after,
+#inner::after{
+    content: "";
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    background-color:  #fff;
+    border-radius: 100%;
+    animation-name: circle-scaling;
+    animation-timing-function: ease;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    z-index: 4;
+}
+#inner::after{
+    top: 0px;
+    animation-delay: -1s;
+}
+@keyframes roto-animation {
+
+    from{
+        transform: rotateZ(0deg);
+    }
+
+    to{
+            transform: rotateZ(360deg);
+    }
+}
+@keyframes circle-scaling {
+
+    0%{
+        transform: scale(0);
+        opacity: 0;        
+    }
+    20%{
+        transform: scale(0);
+        opacity: 0.3;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}
